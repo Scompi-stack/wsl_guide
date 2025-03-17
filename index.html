@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú del Restaurante</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; background-color: #f8f8f8; }
+        h1 { color: #d35400; }
+        #menu { margin-top: 20px; background: white; padding: 20px; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0,0,0,0.1); display: inline-block; text-align: left; }
+        h2 { color: #2980b9; border-bottom: 2px solid #2980b9; padding-bottom: 5px; }
+        ul { list-style: none; padding: 0; }
+        li { padding: 5px 0; font-size: 18px; }
+    </style>
+</head>
+<body>
+
+    <!-- Selector de idioma -->
+    <div id="google_translate_element"></div>
+
+    <h1>Menú del Restaurante</h1>
+
+    <div id="menu">
+        <h2>Entrantes</h2>
+        <ul>
+            <li>🍤 Gambas al ajillo</li>
+            <li>🥖 Pan con tomate y jamón</li>
+            <li>🧀 Tabla de quesos variados</li>
+            <li>🥑 Guacamole con nachos</li>
+        </ul>
+
+        <h2>Platos principales</h2>
+        <ul>
+            <li>🍲 Sopa de mariscos</li>
+            <li>🥩 Entrecot a la parrilla</li>
+            <li>🥗 Ensalada César</li>
+            <li>🍝 Pasta carbonara</li>
+            <li>🐟 Salmón al horno con verduras</li>
+        </ul>
+
+        <h2>Postres</h2>
+        <ul>
+            <li>🍰 Tarta de queso</li>
+            <li>🍨 Helado de vainilla</li>
+            <li>🍮 Flan de caramelo</li>
+            <li>🍓 Fresas con nata</li>
+        </ul>
+
+        <h2>Bebidas</h2>
+        <ul>
+            <li>☕ Café espresso</li>
+            <li>🍷 Vino tinto de la casa</li>
+            <li>🥤 Refrescos variados</li>
+            <li>🍹 Cócteles tropicales</li>
+        </ul>
+    </div>
+
+    <!-- Script de Google Translate -->
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'es'}, 'google_translate_element');
+        }
+    </script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+</html>
