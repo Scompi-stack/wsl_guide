@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú del Restaurante</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background: linear-gradient(to bottom, #003366, #006699);
+            color: #ffffff;
+            margin: 0;
+            padding: 80px 0 20px 0;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .menu-container {
+            background: #ffffff;
+            color: #003366;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 500px;
+            text-align: left;
+            margin: 20px auto;
+        }
+
+        h2 {
+            color: #006699;
+            border-bottom: 3px solid #006699;
+            padding-bottom: 5px;
+            display: flex;
+            align-items: center;
+        }
+
+        h2::before {
+            content: "🌊";
+            margin-right: 10px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 5px 0;
+            font-size: 18px;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #0099cc;
+        }
+
+        .menu-toggle {
+            margin: 10px;
+            padding: 12px 18px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background: #0099cc;
+            color: white;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .menu-toggle:hover {
+            background: #0077aa;
+        }
+
+        .menu {
+            display: none;
+        }
+
+        .menu.active {
+            display: block;
+        }
+
+        #google_translate_container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #ffffff;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        #google_translate_element {
+            display: inline-block;
+        }
+    </style>
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'es' }, 'google_translate_element');
+        }
+
+        function showMenu(menuId) {
+            document.querySelectorAll('.menu').forEach(menu => menu.classList.remove('active'));
+            document.getElementById(menuId).classList.add('active');
+        }
+    </script>
+</head>
+<body>
+
+    <div id="google_translate_container">
+        <div id="google_translate_element"></div>
+    </div>
+
+    <h1>🏄‍♂️ Menú del Restaurante</h1>
+
+    <button class="menu-toggle" onclick="showMenu('menu-hotdogs')">🌭 Menú Hot Dogs</button>
+    <button class="menu-toggle" onclick="showMenu('menu-burgers')">🍔 Menú Burgers</button>
+
+    <div id="menu-hotdogs" class="menu-container menu active">
+        <h2>🌭 Hot Dogs</h2>
+        <ul>
+            <li><strong>Rafeiro</strong> - <span class="price">7,50€</span><br> (Pan, salchicha, patata paja, queso)</li>
+            <li><strong>Labrador</strong> - <span class="price">9,00€</span><br> (Pan, salchicha, patata paja, cheddar, pickles, cebolla roja)</li>
+            <li><strong>Bulldog</strong> - <span class="price">9,00€</span><br> (Pan, salchicha, patata paja, queso, bacon, cebolla crujiente)</li>
+            <li><strong>Chihuahua</strong> (Vegano) - <span class="price">9,00€</span><br> (Pan, salchicha vegana, patata paja, guacamole, maíz, cebolla roja)</li>
+        </ul>
+        <h2>🍟 Acompañamientos</h2>
+        <ul>
+            <li><strong>Nuggets</strong> - <span class="price">5,00€</span></li>
+            <li><strong>Batatas Fritas</strong> - <span class="price">4,00€</span></li>
+            <li><strong>Batatas Fritas con Cheddar y Bacon</strong> - <span class="price">5,00€</span></li>
+        </ul>
+        <h2>🥤 Bebidas</h2>
+        <ul>
+            <li><strong>Agua 50cl</strong> - <span class="price">2,00€</span></li>
+            <li><strong>Agua con Gas 25cl</strong> - <span class="price">2,00€</span></li>
+            <li><strong>Refrescos 33cl</strong> - <span class="price">2,50€</span></li>
+            <li><strong>Why Not Soda 33cl</strong> - <span class="price">3,00€</span></li>
+            <li><strong>Corona 35,5cl</strong> - <span class="price">3,50€</span></li>
+            <li><strong>Copo reutilizable</strong> - <span class="price">1,00€</span></li>
+        </ul>
+    </div>
+
+    <div id="menu-burgers" class="menu-container menu">
+        <h2>🍔 Burgers</h2>
+        <ul>
+            <li><strong>CheeseBurger</strong> - <span class="price">9,00€</span><br> (Pan, carne, queso, tomate, lechuga, mayonesa)</li>
+            <li><strong>BBQ Burger</strong> - <span class="price">10,00€</span><br> (Pan, carne, queso, tomate, bacon, salsa BBQ)</li>
+            <li><strong>Veggie Burger</strong> - <span class="price">10,00€</span><br> (Pan, hamburguesa vegetal, lechuga, tomate, cebolla, mayonesa)</li>
+            <li><strong>Double Burger</strong> - <span class="price">12,00€</span><br> (Pan, doble carne, queso, cebolla, lechuga, salsa especial)</li>
+        </ul>
+        <h2>🥤 Bebidas</h2>
+        <ul>
+            <li><strong>Agua 50cl</strong> - <span class="price">2,00€</span></li>
+            <li><strong>Agua con Gas 25cl</strong> - <span class="price">2,00€</span></li>
+            <li><strong>Refrescos 33cl</strong> - <span class="price">2,50€</span></li>
+            <li><strong>Why Not Soda 33cl</strong> - <span class="price">3,00€</span></li>
+            <li><strong>Corona 35,5cl</strong> - <span class="price">3,50€</span></li>
+            <li><strong>Copo reutilizable</strong> - <span class="price">1,00€</span></li>
+        </ul>
+    </div>
+
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+</html>
