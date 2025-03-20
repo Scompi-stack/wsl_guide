@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Available Soon - WSL Guide</title>
+    <title>Surfboard Rentals - WSL Guide</title>
     <link rel="stylesheet" href="style.css">
     <style>
         body {
@@ -15,28 +15,121 @@
         }
 
         .container {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+            background: #005f99;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);
         }
 
         h1 {
-            font-size: 36px;
             color: #FFA726;
+            font-size: 36px;
         }
 
         p {
-            font-size: 24px;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .rentals {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .rental-card {
+            background: #004080;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            width: 280px;
+            text-align: left;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .rental-card:hover {
+            transform: scale(1.05);
+        }
+
+        .rental-card h3 {
+            color: #FFA726;
+            font-size: 22px;
             margin-top: 10px;
+        }
+
+        .rental-card p {
+            font-size: 16px;
+        }
+
+        #google_translate_container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #ffffff;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>🚧 Available Soon 🚧</h1>
-        <p>We're working hard to bring you this feature. Stay tuned!</p>
+    <div id="google_translate_container">
+        <div id="google_translate_element"></div>
     </div>
+    
+    <div class="container">
+        <h1>🏄‍♂️ Surfboard Rentals</h1>
+        <p>Looking to rent a surfboard or wetsuit while in Peniche? Here are the best spots to get your gear!</p>
+
+        <div class="rentals">
+            <div class="rental-card">
+                <h3>Baleal Surf Camp</h3>
+                <p>📞 Contact: +351 262 769 277</p>
+                <p>Huge selection of boards (shortboards, longboards, soft tops).</p>
+            </div>
+            <div class="rental-card">
+                <h3>Lagido Surf Shop</h3>
+                <p>📞 Contact: +351 913 686 954</p>
+                <p>Right near the beach, great for last-minute rentals.</p>
+            </div>
+            <div class="rental-card">
+                <h3>Deeply Store Peniche</h3>
+                <p>📞 Contact: +351 262 787 777</p>
+                <p>High-quality wetsuits & board rentals.</p>
+            </div>
+            <div class="rental-card">
+                <h3>Peniche Surf Lodge</h3>
+                <p>📞 Contact: +351 965 227 040</p>
+                <p>Affordable rentals for longer stays.</p>
+            </div>
+            <div class="rental-card">
+                <h3>Alex Surf School</h3>
+                <p>📞 Contact: +351 916 531 915</p>
+                <p>Good beginner-friendly rental options.</p>
+            </div>
+        </div>
+
+        <h2>💰 Rental Prices (Approximate)</h2>
+        <ul>
+            <li>🛹 <strong>Surfboard</strong>: €10-15 (half-day) | €15-25 (full-day)</li>
+            <li>🤿 <strong>Wetsuit</strong>: €5-10 (half-day) | €10-15 (full-day)</li>
+            <li>🏄‍♂️ <strong>Board + Wetsuit Package</strong>: ~€20-30 per day</li>
+        </ul>
+
+        <p><strong>Pro Tip:</strong> Some surf schools offer lesson + rental packages for better deals!</p>
+    </div>
+
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'all'}, 'google_translate_element');
+        }
+    </script>
 </body>
 </html>
