@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beach Map - WSL Guide</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            text-align: center;
+            background: #0074b7;
+            color: white;
+            font-family: 'Oswald', sans-serif;
+            padding: 20px;
+        }
+
+        .map-container {
+            max-width: 900px;
+            margin: auto;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        .map-container img {
+            width: 80%; max-width: 700px;
+            border-radius: 10px;
+        }
+
+        .legend {
+            background: #005f99;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 10px;
+            text-align: left;
+            max-width: 900px;
+            margin: auto;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .legend h3 {
+            text-align: center;
+            font-size: 24px;
+            color: #FFA726;
+        }
+
+        .legend ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .legend li {
+            font-size: 18px;
+            padding: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>📍 Beach Map</h1>
+    <p>Find key locations like restaurants, surf rentals, and VIP areas.</p>
+
+    <!-- Contenedor del mapa -->
+    <div class="map-container">
+        <img src="images/wsl-peniche-map.jpeg" alt="Beach Map">
+    </div>
+
+    <!-- Leyenda -->
+    <div class="legend">
+        <h3>Legend</h3>
+        <ul>
+            <li>🅿️ <strong>Parking</strong> - Secure parking area.</li>
+            <li>🚪 <strong>Entrance</strong> - Main access to the beach.</li>
+            <li>🍔 <strong>Food Trucks</strong> - Various food options available.</li>
+            <li>🛍️ <strong>Shops</strong> - Beach shops and merchandise.</li>
+            <li>🎪 <strong>Stands</strong> - Vendor and promotional stands.</li>
+            <li>🏟️ <strong>Spectator Zone</strong> - Seating area for visitors.</li>
+            <li>⭐ <strong>VIP Zone</strong> - Exclusive access area.</li>
+        </ul>
+    </div>
+
+</body>
+</html>
