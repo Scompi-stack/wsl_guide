@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Available Soon - WSL Guide</title>
+    <title>Travel Guide - WSL Guide</title>
     <link rel="stylesheet" href="style.css">
     <style>
         body {
@@ -15,28 +15,98 @@
         }
 
         .container {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+            background: #005f99;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);
         }
 
         h1 {
-            font-size: 36px;
             color: #FFA726;
+            font-size: 36px;
         }
 
         p {
-            font-size: 24px;
-            margin-top: 10px;
+            font-size: 20px;
+            margin-bottom: 20px;
         }
+
+        .guide-section {
+            background: #004080;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: left;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        .guide-section h3 {
+            color: #FFA726;
+            font-size: 22px;
+        }
+
+        #google_translate_container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #ffffff;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>🚧 Available Soon 🚧</h1>
-        <p>We're working hard to bring you this feature. Stay tuned!</p>
+    <div id="google_translate_container">
+        <div id="google_translate_element"></div>
     </div>
+    
+    <div class="container">
+        <h1>🌍 Travel Guide to Peniche</h1>
+        <p>Everything you need to know for your trip to Peniche and the WSL event.</p>
+
+        <div class="guide-section">
+            <h3>✈️ Getting to Peniche</h3>
+            <p>The nearest airport is Lisbon Portela Airport (LIS). From there, you can take a direct bus to Peniche (~1.5h journey) or rent a car for more flexibility.</p>
+        </div>
+
+        <div class="guide-section">
+            <h3>🏨 Where to Stay</h3>
+            <p>Peniche offers a range of accommodations from budget hostels to beachfront resorts:</p>
+            <ul>
+                <li>🏠 Budget: Peniche Hostel & Surf</li>
+                <li>🏝️ Mid-Range: Star Inn Peniche</li>
+                <li>🌟 Luxury: MH Peniche</li>
+            </ul>
+        </div>
+
+        <div class="guide-section">
+            <h3>🍽️ Where to Eat</h3>
+            <p>Enjoy fresh seafood and local specialties at these spots:</p>
+            <ul>
+                <li>🐟 <strong>Marisqueira Mirandum</strong> - Best seafood in town.</li>
+                <li>🍕 <strong>Profresco</strong> - Local flavors with a modern twist.</li>
+                <li>🥙 <strong>Taberna do Ganhão</strong> - Traditional Portuguese cuisine.</li>
+            </ul>
+        </div>
+
+        <div class="guide-section">
+            <h3>🚗 Getting Around</h3>
+            <p>Peniche is a walkable town, but you can rent a bike or use local taxis for convenience.</p>
+        </div>
+    </div>
+
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'all'}, 'google_translate_element');
+        }
+    </script>
 </body>
 </html>
