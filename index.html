@@ -1,87 +1,20 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menú del Restaurante</title>
+    <title>WSL Guide</title>
+    <link rel="stylesheet" href="style.css"> <!-- External CSS file -->
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&family=Bebas+Neue&display=swap');
+
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Oswald', sans-serif;
             text-align: center;
-            background: linear-gradient(to bottom, #003366, #006699);
+            background: #003366;
             color: #ffffff;
             margin: 0;
-            padding: 80px 0 20px 0;
-        }
-
-        h1 {
-            font-size: 36px;
-            margin-bottom: 20px;
-        }
-
-        .menu-container {
-            background: #ffffff;
-            color: #003366;
             padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
-            width: 90%;
-            max-width: 500px;
-            text-align: left;
-            margin: 20px auto;
-        }
-
-        h2 {
-            color: #006699;
-            border-bottom: 3px solid #006699;
-            padding-bottom: 5px;
-            display: flex;
-            align-items: center;
-        }
-
-        h2::before {
-            content: "🌊";
-            margin-right: 10px;
-        }
-
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        li {
-            padding: 5px 0;
-            font-size: 18px;
-        }
-
-        .price {
-            font-weight: bold;
-            color: #0099cc;
-        }
-
-        .menu-toggle {
-            margin: 10px;
-            padding: 12px 18px;
-            font-size: 16px;
-            cursor: pointer;
-            border: none;
-            border-radius: 5px;
-            background: #0099cc;
-            color: white;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .menu-toggle:hover {
-            background: #0077aa;
-        }
-
-        .menu {
-            display: none;
-        }
-
-        .menu.active {
-            display: block;
         }
 
         #google_translate_container {
@@ -89,84 +22,145 @@
             top: 0;
             left: 0;
             width: 100%;
-            background: #ffffff;
+            background: #005f99;
             padding: 10px;
             text-align: center;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
             z-index: 1000;
         }
 
-        #google_translate_element {
+        header {
+            background: #004080;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+            margin-top: 60px;
+        }
+
+        .logo img {
+            height: 160px;
+        }
+
+        .hero {
+            background: #004080;
+            padding: 100px 20px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+            text-transform: uppercase;
+            min-height: 250px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 55px;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+            color: #FFA726;
+        }
+
+        .button {
             display: inline-block;
+            padding: 15px 25px;
+            margin-top: 20px;
+            font-size: 20px;
+            color: white;
+            background: #008CBA;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .button:hover {
+            background: #003d52;
+        }
+
+        section {
+            position: relative;
+            z-index: 1;
+            margin: 50px auto;
+            padding: 40px;
+            background: #004080;
+            color: #ffffff;
+            border-radius: 15px;
+            max-width: 900px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);
+            transition: transform 0.2s ease-in-out;
+            margin-bottom: 40px;
+        }
+
+        section:hover {
+            transform: scale(1.03);
+        }
+
+        h2 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 40px;
+            color: #FFA726;
+            text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+            text-transform: uppercase;
+        }
+
+        footer {
+            background: #002244;
+            padding: 30px;
+            margin-top: 50px;
+            font-size: 18px;
+            font-weight: bold;
         }
     </style>
-    <script>
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({ pageLanguage: 'es' }, 'google_translate_element');
-        }
-
-        function showMenu(menuId) {
-            document.querySelectorAll('.menu').forEach(menu => menu.classList.remove('active'));
-            document.getElementById(menuId).classList.add('active');
-        }
-    </script>
 </head>
 <body>
-
     <div id="google_translate_container">
         <div id="google_translate_element"></div>
     </div>
 
-    <h1>🏄‍♂️ Menú del Restaurante</h1>
+    <header>
+        <div class="logo">
+            <img src="wsl-logo.png" alt="WSL Logo">
+        </div>
+    </header>
+    
+    <section class="hero">
+        <h1>Your Complete Guide to WSL</h1>
+        <p>Find everything you need: food, maps, rentals, and more.</p>
+    </section>
 
-    <button class="menu-toggle" onclick="showMenu('menu-hotdogs')">🌭 Menú Hot Dogs</button>
-    <button class="menu-toggle" onclick="showMenu('menu-burgers')">🍔 Menú Burgers</button>
+    <section id="map">
+        <h2>📍 Maps</h2>
+        <p>Check the location of food stands, surfboard rentals, and more.</p>
+        <a href="maps.html" class="button">View Map</a>
+    </section>
 
-    <div id="menu-hotdogs" class="menu-container menu active">
-        <h2>🌭 Hot Dogs</h2>
-        <ul>
-            <li><strong>Rafeiro</strong> - <span class="price">7,50€</span><br> (Pan, salchicha, patata paja, queso)</li>
-            <li><strong>Labrador</strong> - <span class="price">9,00€</span><br> (Pan, salchicha, patata paja, cheddar, pickles, cebolla roja)</li>
-            <li><strong>Bulldog</strong> - <span class="price">9,00€</span><br> (Pan, salchicha, patata paja, queso, bacon, cebolla crujiente)</li>
-            <li><strong>Chihuahua</strong> (Vegano) - <span class="price">9,00€</span><br> (Pan, salchicha vegana, patata paja, guacamole, maíz, cebolla roja)</li>
-        </ul>
-        <h2>🍟 Acompañamientos</h2>
-        <ul>
-            <li><strong>Nuggets</strong> - <span class="price">5,00€</span></li>
-            <li><strong>Batatas Fritas</strong> - <span class="price">4,00€</span></li>
-            <li><strong>Batatas Fritas con Cheddar y Bacon</strong> - <span class="price">5,00€</span></li>
-        </ul>
-        <h2>🥤 Bebidas</h2>
-        <ul>
-            <li><strong>Agua 50cl</strong> - <span class="price">2,00€</span></li>
-            <li><strong>Agua con Gas 25cl</strong> - <span class="price">2,00€</span></li>
-            <li><strong>Refrescos 33cl</strong> - <span class="price">2,50€</span></li>
-            <li><strong>Why Not Soda 33cl</strong> - <span class="price">3,00€</span></li>
-            <li><strong>Corona 35,5cl</strong> - <span class="price">3,50€</span></li>
-            <li><strong>Copo reutilizable</strong> - <span class="price">1,00€</span></li>
-        </ul>
-    </div>
+    <section id="food">
+        <h2>🍔 Order Food</h2>
+        <p>Browse available menus and order your food online.</p>
+        <a href="menu.html" class="button">Explore Menus</a>
+    </section>
 
-    <div id="menu-burgers" class="menu-container menu">
-        <h2>🍔 Burgers</h2>
-        <ul>
-            <li><strong>CheeseBurger</strong> - <span class="price">9,00€</span><br> (Pan, carne, queso, tomate, lechuga, mayonesa)</li>
-            <li><strong>BBQ Burger</strong> - <span class="price">10,00€</span><br> (Pan, carne, queso, tomate, bacon, salsa BBQ)</li>
-            <li><strong>Veggie Burger</strong> - <span class="price">10,00€</span><br> (Pan, hamburguesa vegetal, lechuga, tomate, cebolla, mayonesa)</li>
-            <li><strong>Double Burger</strong> - <span class="price">12,00€</span><br> (Pan, doble carne, queso, cebolla, lechuga, salsa especial)</li>
-        </ul>
-        <h2>🥤 Bebidas</h2>
-        <ul>
-            <li><strong>Agua 50cl</strong> - <span class="price">2,00€</span></li>
-            <li><strong>Agua con Gas 25cl</strong> - <span class="price">2,00€</span></li>
-            <li><strong>Refrescos 33cl</strong> - <span class="price">2,50€</span></li>
-            <li><strong>Why Not Soda 33cl</strong> - <span class="price">3,00€</span></li>
-            <li><strong>Corona 35,5cl</strong> - <span class="price">3,50€</span></li>
-            <li><strong>Copo reutilizable</strong> - <span class="price">1,00€</span></li>
-        </ul>
-    </div>
+    <section id="rental">
+        <h2>🏄‍♂️ Surfboard Rentals</h2>
+        <p>Find the best place to rent your surfboard.</p>
+        <a href="rentals.html" class="button">Find Rentals</a>
+    </section>
+    
+    <section id="events">
+        <h2>📅 Travel Guide</h2>
+        <p>Check the WSL schedule and don't miss a thing.</p>
+        <a href="events.html" class="button">View Events</a>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 WSL Guide - All rights reserved.</p>
+    </footer>
 
     <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'all'}, 'google_translate_element');
+        }
+    </script>
 </body>
 </html>
