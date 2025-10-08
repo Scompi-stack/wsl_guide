@@ -482,6 +482,58 @@
             opacity: 0.7;
         }
 
+        /* Google Translate Styles */
+        .translate-popup {
+            display: none;
+            position: fixed;
+            top: 80px;
+            right: 40px;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            z-index: 1001;
+            min-width: 250px;
+        }
+
+        .translate-popup.active {
+            display: block;
+        }
+
+        .translate-popup h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .translate-popup select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid var(--accent-cyan);
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            background: white;
+            color: var(--dark-gray);
+        }
+
+        .translate-popup .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: var(--dark-gray);
+            padding: 5px;
+        }
+
+        .translate-popup .close-btn:hover {
+            color: var(--accent-orange);
+        }
+
         /* Mobile Responsive */
         @media (max-width: 768px) {
             .navbar-content {
@@ -534,11 +586,20 @@
             .stats-container {
                 gap: 40px;
             }
+
+            .translate-popup {
+                right: 20px;
+                left: 20px;
+                width: auto;
+            }
         }
 
-        /* Google Translate Integration */
-        #google_translate_element {
-            display: none;
+        .skiptranslate {
+            display: none !important;
+        }
+
+        body {
+            top: 0 !important;
         }
     </style>
 </head>
@@ -554,10 +615,39 @@
                 <a href="#food">Food</a>
                 <a href="#rental">Rentals</a>
                 <a href="#events">Events</a>
-                <button class="translate-btn" onclick="openTranslate()">🌐 Translate</button>
+                <button class="translate-btn" onclick="toggleTranslate()">🌍 Translate</button>
             </div>
         </div>
     </nav>
+
+    <!-- Custom Translate Popup -->
+    <div id="translatePopup" class="translate-popup">
+        <button class="close-btn" onclick="closeTranslate()">✕</button>
+        <h3>Select Language</h3>
+        <select id="languageSelect" onchange="translatePage(this.value)">
+            <option value="">Choose a language</option>
+            <option value="es">Español</option>
+            <option value="fr">Français</option>
+            <option value="de">Deutsch</option>
+            <option value="it">Italiano</option>
+            <option value="pt">Português</option>
+            <option value="ja">日本語</option>
+            <option value="zh-CN">中文 (简体)</option>
+            <option value="ko">한국어</option>
+            <option value="ru">Русский</option>
+            <option value="ar">العربية</option>
+            <option value="hi">हिन्दी</option>
+            <option value="nl">Nederlands</option>
+            <option value="sv">Svenska</option>
+            <option value="no">Norsk</option>
+            <option value="da">Dansk</option>
+            <option value="fi">Suomi</option>
+            <option value="pl">Polski</option>
+            <option value="tr">Türkçe</option>
+            <option value="th">ไทย</option>
+            <option value="vi">Tiếng Việt</option>
+        </select>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero-section">
@@ -680,30 +770,33 @@
         </div>
     </footer>
 
-    <!-- Google Translate -->
-    <div id="google_translate_element"></div>
-    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script>
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'all'}, 'google_translate_element');
+        function toggleTranslate() {
+            const popup = document.getElementById('translatePopup');
+            popup.classList.toggle('active');
         }
 
-        function openTranslate() {
-            const translateElement = document.getElementById('google_translate_element');
-            if (translateElement.style.display === 'none' || translateElement.style.display === '') {
-                translateElement.style.display = 'block';
-                translateElement.style.position = 'fixed';
-                translateElement.style.top = '80px';
-                translateElement.style.right = '40px';
-                translateElement.style.background = 'white';
-                translateElement.style.padding = '20px';
-                translateElement.style.borderRadius = '10px';
-                translateElement.style.boxShadow = '0 10px 40px rgba(0,0,0,0.2)';
-                translateElement.style.zIndex = '1001';
-            } else {
-                translateElement.style.display = 'none';
+        function closeTranslate() {
+            const popup = document.getElementById('translatePopup');
+            popup.classList.remove('active');
+        }
+
+        function translatePage(language) {
+            if (language) {
+                const currentUrl = window.location.href.split('#')[0].split('?')[0];
+                window.location.href = `https://translate.google.com/translate?sl=auto&tl=${language}&u=${encodeURIComponent(currentUrl)}`;
             }
         }
+
+        // Close popup when clicking outside
+        document.addEventListener('click', function(event) {
+            const popup = document.getElementById('translatePopup');
+            const translateBtn = document.querySelector('.translate-btn');
+            
+            if (!popup.contains(event.target) && event.target !== translateBtn) {
+                popup.classList.remove('active');
+            }
+        });
 
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
